@@ -1,7 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Dayline">
-  <rect width="256" height="256" rx="54" fill="#161719"/>
-  <path d="M71 178V78h46c31 0 58 18 58 50s-27 50-58 50H71Z" fill="#f7f8fa"/>
-  <path d="M105 148h13c15 0 27-7 27-20s-12-20-27-20h-13v40Z" fill="#161719"/>
-  <path d="M70 199h116" stroke="#0A84FF" stroke-width="14" stroke-linecap="round"/>
-  <path d="M70 57h74" stroke="#30D158" stroke-width="14" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="bg" x1="36" x2="218" y1="24" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#111A46"/>
+      <stop offset="0.52" stop-color="#1F1664"/>
+      <stop offset="1" stop-color="#070B23"/>
+    </linearGradient>
+    <linearGradient id="d" x1="68" x2="204" y1="52" y2="202" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4F72FF"/>
+      <stop offset="0.45" stop-color="#8AC7FF"/>
+      <stop offset="1" stop-color="#7B4CFF"/>
+    </linearGradient>
+    <linearGradient id="line" x1="48" x2="182" y1="166" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#B9F3FF"/>
+      <stop offset="0.44" stop-color="#E7E6FF"/>
+      <stop offset="1" stop-color="#F3EEFF"/>
+    </linearGradient>
+    <filter id="softGlow" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.33 0 0 0 0 0.52 0 0 0 0 1 0 0 0 0.7 0"/>
+      <feBlend in="SourceGraphic" mode="screen"/>
+    </filter>
+    <filter id="nodeGlow" x="-80%" y="-80%" width="260%" height="260%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.55 0 0 0 0 0.82 0 0 0 0 1 0 0 0 0.85 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <path d="M31 224C53 181 68 115 112 78c33-28 76-31 106-12" fill="none" opacity="0.3" stroke="#7995FF" stroke-width="1.4"/>
+  <path d="M63 68h82c44 0 78 34 78 76s-34 76-78 76H83a21 21 0 0 1 0-42h62c20 0 36-15 36-34s-16-34-36-34H63a21 21 0 1 1 0-42Z" fill="url(#d)" filter="url(#softGlow)"/>
+  <path d="M83 178h63c16 0 29-9 34-23" fill="none" opacity="0.28" stroke="#FFFFFF" stroke-linecap="round" stroke-width="4"/>
+  <path d="M49 169C75 141 101 134 126 139c27 5 38-20 60-28" fill="none" stroke="url(#line)" stroke-linecap="round" stroke-width="12"/>
+  <circle cx="50" cy="169" r="14" fill="#BDF2FF" filter="url(#nodeGlow)"/>
+  <circle cx="126" cy="139" r="14" fill="#E6E2FF" filter="url(#nodeGlow)"/>
+  <circle cx="186" cy="111" r="14" fill="#F1ECFF" filter="url(#nodeGlow)"/>
+  <path d="M49 169C75 141 101 134 126 139c27 5 38-20 60-28" fill="none" opacity="0.28" stroke="#FFFFFF" stroke-linecap="round" stroke-width="3"/>
 </svg>
