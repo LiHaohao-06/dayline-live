@@ -1,4 +1,4 @@
-const CACHE_NAME = 'dayline-pwa-v29';
+const CACHE_NAME = 'dayline-pwa-v30';
 const APP_SHELL = ['./', './index.html', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
 
 self.addEventListener('install', (event) => {
@@ -52,8 +52,7 @@ async function cacheFirst(request, event) {
 }
 
 async function appShellFirst(request, event) {
-  const cached = (await caches.match('./index.html')) || (await caches.match('./'));
-  const update = fetch(request)
+  const update = fetch(request, { cache: 'no-store' })
     .then(async (response) => {
       if (response && response.status === 200) {
         const cache = await caches.open(CACHE_NAME);
@@ -66,16 +65,12 @@ async function appShellFirst(request, event) {
 
   event.waitUntil(update);
 
-  if (cached) {
-    return cached;
-  }
-
-  return update || new Response('Dayline 暂时离线，请稍后重试。', {
+  return update.then((response) => response || caches.match('./index.html') || caches.match('./')).then((response) => response || new Response('Dayline 暂时离线，请稍后重试。', {
     status: 503,
     headers: {
       'Content-Type': 'text/plain; charset=utf-8'
     }
-  });
+  }));
 }
 
 self.addEventListener('fetch', (event) => {
