@@ -1,7 +1,8 @@
 {
   "app": "Dayline",
-  "buildId": "48d2eb3-2026-10-20T16:02:27.742Z",
-  "commit": "48d2eb3",
+  "syncProtocol": 2,
+  "buildId": "34be35f-2026-10-21T07:27:12.609Z",
+  "commit": "34be35f",
   "branch": "main",
-  "builtAt": "2026-10-20T16:02:27.742Z"
+  "builtAt": "2026-10-21T07:27:12.609Z"
 }
